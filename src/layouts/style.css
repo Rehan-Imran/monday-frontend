@@ -21,7 +21,7 @@
     background-color: var(--primary-background-color);
     height: calc(100vh - 60px);
     border-radius: var(--border-radius-big) 0 0 0;
-    padding: 20px;
+    padding: 25px 35px;
     overflow-y: scroll;
 }
 .nav-list-item{

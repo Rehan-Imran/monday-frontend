@@ -1,0 +1,11 @@
+.board-tabs{
+    padding: 0;
+    margin: 0;
+}
+.board-tabs ul{
+    padding: 0;
+    margin: 0;
+}
+.board-tabs li{
+    border-bottom:0;
+}
