@@ -27,6 +27,7 @@
 .nav-list-item{
     margin-bottom: 10px;
     padding: 20px 15px;
+    font-size: large;
 }
 .inner-div{
     padding: 30px;
@@ -37,4 +38,28 @@
     padding: 30px;
     background-color: var(--primary-background-hover-color);
     border-radius: var(--border-radius-big);
+}
+
+.breadcrumb-custom ol{
+    margin: 0;
+    padding: 0;
+}
+.custom-collapse-header{
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+}
+.custom-collapse-header:hover{
+    background-color: transparent;
+}
+.custom-collapse-header h5{
+    font-size: larger;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.pulse-background-color{
+    background-color: var(--pulse-background-color);
 }
