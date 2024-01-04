@@ -38,7 +38,7 @@ import {
 const Index = () => {
   return (
     <Dashboard>
-      <div className="board-header d-flex align-items-center">
+      <div className="board-header d-flex align-items-center mt-3">
         <IconButton ariaLabel="Inbox" icon={Board} size="medium" />
         <EditableHeading
           className="mx-1"

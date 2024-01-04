@@ -13,6 +13,11 @@ import {
   BreadcrumbsBar,
   IconButton,
   ExpandCollapse,
+  MenuButton,
+  Flex,
+  Menu,
+  MenuItem,
+  
   Counter,
 } from "monday-ui-react-core";
 import Dashboard from "../../layouts/Dashboard"
@@ -24,6 +29,7 @@ import {
   Folder,
   Workspace,
   Board,
+  BoardShareable,
   Favorite,
 } from "monday-ui-react-core/icons";
 import QuickSearchRecentBoardImage from '../../assets/img/quick_search_recent_board.svg'
@@ -34,29 +40,37 @@ const Index = () => {
   const [hoverRef, isHovered] = useHover();
   const [hoverRef2, isHovered2] = useHover();
   const [hoverRef3, isHovered3] = useHover();
+  const [hoverRef4, isHovered4] = useHover();
+  const ref = React.useRef();
   return (
-    <Dashboard>
-      <Welecome />
-
-      <div className="row mt-3">
-        <div className="col-9">
+    <Dashboard header={<Welecome />}>
+      <div className="d-flex mt-3">
+        <div style={{ width: "100%", marginRight: "25px" }}>
           <Box
             backgroundColor={Box.backgroundColors.SECONDARY_BACKGROUND_COLOR}
             rounded={Box.roundeds.MEDIUM}
-            padding={Box.paddings.MEDIUM}
+            padding={Box.paddings.SMALL}
           >
             <ExpandCollapse
               headerClassName="custom-collapse-header"
+              contentClassName="custom-collapse-content"
               hideBorder
-              iconSize={30}
+              iconSize={25}
               defaultOpenState
-              title={<h5>Recently visited</h5>}
+              title={
+                <Text weight={Text.weights.BOLD} type={Text.types.TEXT1}>
+                  Recently visited
+                </Text>
+              }
             >
-              <div className="row">
-                <div className="col-4">
+              <div className="row m-0 p-0">
+                <div className="col-3">
                   <Box
+                    ref={hoverRef4}
+                    shadow={isHovered4 && Box.shadows.SMALL}
                     padding={Box.paddings.SMALL}
                     border={Box.borders.DEFAULT}
+                    className={isHovered4 && "transparent-border-color"}
                     rounded={Box.roundeds.SMALL}
                   >
                     <img
@@ -66,19 +80,23 @@ const Index = () => {
                     />
                     <div className="d-flex justify-content-between align-items-center mt-3 mb-2">
                       <div className="d-flex align-items-center">
-                        <Icon icon={Board} iconSize={20} iconType="SVG" />
-                        <Heading
+                        <Icon
+                          icon={BoardShareable}
+                          iconSize={20}
+                          iconType="SVG"
+                        />
+                        <Text
                           className="mx-1"
-                          weight={Heading.weights.BOLD}
-                          type={Heading.types.H3}
+                          weight={Text.weights.BOLD}
+                          type={Text.types.TEXT1}
                         >
                           Abdul Rehman
-                        </Heading>
+                        </Text>
                       </div>
                       <IconButton
                         ariaLabel="Favorite"
                         icon={Favorite}
-                        size="medium"
+                        size="small"
                       />
                     </div>
                   </Box>
@@ -88,24 +106,26 @@ const Index = () => {
 
             <ExpandCollapse
               hideBorder
-              iconSize={30}
+              iconSize={25}
               defaultOpenState
               title={
                 <>
                   <Counter className="mx-2" count={5} />{" "}
-                  <h5>Update feed (Inbox)</h5>
+                  <Text weight={Text.weights.BOLD} type={Text.types.TEXT1}>
+                    Update feed (Inbox)
+                  </Text>
                 </>
               }
               headerClassName="custom-collapse-header"
             >
               <Box
-                padding={Box.paddings.SMALL}
+                padding={Box.paddings.MEDIUM}
                 border={Box.borders.DEFAULT}
                 rounded={Box.roundeds.MEDIUM}
               >
                 <Box
                   ref={hoverRef}
-                  padding={Box.paddings.SMALL}
+                  padding={Box.paddings.MEDIUM}
                   rounded={Box.roundeds.MEDIUM}
                   backgroundColor={
                     isHovered && Box.backgroundColors.PRIMARY_BACKGROUND_COLOR
@@ -115,7 +135,7 @@ const Index = () => {
                   <div className="d-flex align-items-center">
                     <Avatar
                       withoutBorder
-                      size={Avatar.sizes.LARGE}
+                      size={Avatar.sizes.MEDIUM}
                       type={Avatar.types.TEXT}
                       text="S"
                       backgroundColor={Avatar.colors.DONE_GREEN}
@@ -163,7 +183,7 @@ const Index = () => {
 
                 <Box
                   ref={hoverRef2}
-                  padding={Box.paddings.SMALL}
+                  padding={Box.paddings.MEDIUM}
                   rounded={Box.roundeds.MEDIUM}
                   backgroundColor={
                     isHovered2 && Box.backgroundColors.PRIMARY_BACKGROUND_COLOR
@@ -173,7 +193,7 @@ const Index = () => {
                   <div className="d-flex align-items-center">
                     <Avatar
                       withoutBorder
-                      size={Avatar.sizes.LARGE}
+                      size={Avatar.sizes.MEDIUM}
                       type={Avatar.types.TEXT}
                       text="S"
                       backgroundColor={Avatar.colors.DONE_GREEN}
@@ -221,7 +241,7 @@ const Index = () => {
 
                 <Box
                   ref={hoverRef3}
-                  padding={Box.paddings.SMALL}
+                  padding={Box.paddings.MEDIUM}
                   rounded={Box.roundeds.MEDIUM}
                   backgroundColor={
                     isHovered3 && Box.backgroundColors.PRIMARY_BACKGROUND_COLOR
@@ -231,7 +251,7 @@ const Index = () => {
                   <div className="d-flex align-items-center">
                     <Avatar
                       withoutBorder
-                      size={Avatar.sizes.LARGE}
+                      size={Avatar.sizes.MEDIUM}
                       type={Avatar.types.TEXT}
                       text="S"
                       backgroundColor={Avatar.colors.DONE_GREEN}
@@ -278,12 +298,12 @@ const Index = () => {
                 <Divider />
 
                 <Box
-                  padding={Box.paddings.SMALL}
+                  padding={Box.paddings.MEDIUM}
                   rounded={Box.roundeds.MEDIUM}
                   className="updates-item d-flex align-items-center justify-content-between pulse-background-color"
                 >
                   <div className="d-flex align-items-center">
-                    <AvatarGroup max={3} size="large">
+                    <AvatarGroup max={3} size="medium">
                       <Avatar
                         ariaLabel="Hadas Fahri"
                         src="https://style.monday.com/static/media/person1.de30c8ee.png"
@@ -367,8 +387,10 @@ const Index = () => {
             </ExpandCollapse>
           </Box>
         </div>
-        <div className="col-3">
-          <Heading type={Heading.types.H3}>Learn & get inspired</Heading>
+        <div className="" style={{ width: "300px" }}>
+          <Text type={Text.types.TEXT1} weight={Text.weights.MEDIUM}>
+            Learn & get inspired
+          </Text>
           <Box
             backgroundColor={Box.backgroundColors.SECONDARY_BACKGROUND_COLOR}
             rounded={Box.roundeds.MEDIUM}
@@ -377,12 +399,16 @@ const Index = () => {
             marginBottom={Box.marginBottoms.MEDIUM}
             className="d-flex align-items-center"
           >
-            <img src={getStartedImg} alt="" />
+            <img className="home-card-icon" src={getStartedImg} alt="" />
             <div className="px-3">
-              <Heading className="mb-1" type={Heading.types.H3}>
+              <Text
+                className="mb-1"
+                type={Text.types.TEXT2}
+                weight={Text.weights.BOLD}
+              >
                 Getting started
-              </Heading>
-              <Text type={Text.types.TEXT1}>Learn how flexliving works.</Text>
+              </Text>
+              <Text type={Text.types.TEXT2}>Learn how flexliving works.</Text>
             </div>
           </Box>
 
@@ -394,14 +420,15 @@ const Index = () => {
             marginBottom={Box.marginBottoms.MEDIUM}
             className="d-flex align-items-center"
           >
-            <img src={helpCenterImg} alt="" />
+            <img className="home-card-icon" src={helpCenterImg} alt="" />
             <div className="px-3">
-              <Heading className="mb-1" type={Heading.types.H3}>
+              <Text type={Text.types.TEXT2} weight={Text.weights.BOLD}>
                 Help Center
-              </Heading>
+              </Text>
               <Text type={Text.types.TEXT1}>Learn & get support</Text>
             </div>
           </Box>
+
         </div>
       </div>
     </Dashboard>

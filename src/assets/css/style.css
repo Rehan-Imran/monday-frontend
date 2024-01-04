@@ -9,3 +9,7 @@
 .board-tabs li{
     border-bottom:0;
 }
+
+.transparent-border-color{
+    border-color: transparent!important;
+}

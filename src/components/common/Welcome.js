@@ -20,30 +20,33 @@ import {
 const Welcome = () => {
   return (
     <>
-      <div className="row">
-        <div className="col-6 d-flex justify-content-between">
-          <div>
-            <Heading>Good morning, Abdul!</Heading>
-            <Text type={Text.types.TEXT2}>
-              Quickly access your recent boards, Inbox and workspaces
-            </Text>
+      <div className="custom-container">
+        <div className="row">
+          <div className="col-6 d-flex justify-content-between">
+            <div className="d-flex flex-column justify-content-center">
+              <Text>Good morning, Abdul!</Text>
+              <Text type={Text.types.TEXT2}>
+                Quickly access your recent boards, Inbox and workspaces
+              </Text>
+            </div>
+          </div>
+          <div className="col-6 d-flex align-items-center justify-content-end">
+            <img src={WelcomeImage} alt="" style={{ height: "76px" }} />
+            <Button
+              size={Button.sizes.MEDIUM}
+              className="mx-1"
+              leftIcon={Feedback}
+              kind={Button.kinds.TERTIARY}
+            >
+              Give feedback
+            </Button>
+            <Button size={Button.sizes.MEDIUM} leftIcon={Bolt}>
+              Quick Search
+            </Button>
           </div>
         </div>
-        <div className="col-6 d-flex align-items-center justify-content-end">
-          <img src={WelcomeImage} alt="" />
-          <Button
-            size={Button.sizes.LARGE}
-            className="mx-1"
-            leftIcon={Feedback}
-            kind={Button.kinds.TERTIARY}
-          >
-            Give feedback
-          </Button>
-          <Button size={Button.sizes.LARGE} leftIcon={Bolt}>
-            Quick Search
-          </Button>
-        </div>
       </div>
+
       <Divider className="m-0 p-0" />
     </>
   );
