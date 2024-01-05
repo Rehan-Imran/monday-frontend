@@ -113,6 +113,27 @@
     box-shadow: none;
 }
 
+.side-nav-editable{
+    border: 1px solid transparent;
+}
+.side-nav-editable-active{
+    border: 1px solid gray;
+}
+
+.folder-expand-header {
+    border-radius: var(--border-radius-small);
+    flex-direction: row-reverse;
+}
+.mr-3{
+    margin-right: 10px;
+}
+
+.pr-3{
+    padding-right: 0px;
+}
+.board-item-hovered button{
+    visibility: hidden;
+}
 
 
   @media (min-width: 1850px) {.custom-container {
